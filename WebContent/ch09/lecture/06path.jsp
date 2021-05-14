@@ -4,7 +4,9 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
-Cookie[] cookies = request.getCookies();
+Cookie cookie = new Cookie("my-cookie9", "my-value9");
+cookie.setPath(request.getContextPath());
+response.addCookie(cookie);
 %>
 
 <!DOCTYPE html>
@@ -17,17 +19,7 @@ Cookie[] cookies = request.getCookies();
 </head>
 <body>
 <div class="container">
-	<h3>cookies size : <%= cookies.length %></h3>
-	
-	<%
-	for(Cookie cookie : cookies){
-		out.print("<p>");
-		out.print(cookie.getName());
-		out.print(":");
-		out.print(cookie.getValue());		
-		out.print("</p>");
-	}
-	%>
+	<h1> cookie path </h1>
 </div>
 </body>
 </html>

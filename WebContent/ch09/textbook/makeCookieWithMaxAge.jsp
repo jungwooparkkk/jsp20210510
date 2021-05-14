@@ -4,7 +4,10 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
-Cookie[] cookies = request.getCookies();
+Cookie cookie = new Cookie("oneh", "ltime");
+cookie.setMaxAge(60*60); //60초(1분)*60= 1시간
+response.addCookie(cookie);
+
 %>
 
 <!DOCTYPE html>
@@ -17,17 +20,7 @@ Cookie[] cookies = request.getCookies();
 </head>
 <body>
 <div class="container">
-	<h3>cookies size : <%= cookies.length %></h3>
-	
-	<%
-	for(Cookie cookie : cookies){
-		out.print("<p>");
-		out.print(cookie.getName());
-		out.print(":");
-		out.print(cookie.getValue());		
-		out.print("</p>");
-	}
-	%>
+	유효기간이 1시간인 oneh쿠키 생성.
 </div>
 </body>
 </html>

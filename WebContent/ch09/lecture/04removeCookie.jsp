@@ -2,11 +2,12 @@
 <%@ page import="java.util.*"%>
 
 <% request.setCharacterEncoding("utf-8"); %>
-
 <%
-Cookie[] cookies = request.getCookies();
-%>
+Cookie cookie = new Cookie("my-cookie", "my-value");
+cookie.setMaxAge(0);
+response.addCookie(cookie);
 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,17 +18,7 @@ Cookie[] cookies = request.getCookies();
 </head>
 <body>
 <div class="container">
-	<h3>cookies size : <%= cookies.length %></h3>
-	
-	<%
-	for(Cookie cookie : cookies){
-		out.print("<p>");
-		out.print(cookie.getName());
-		out.print(":");
-		out.print(cookie.getValue());		
-		out.print("</p>");
-	}
-	%>
+	<h1>쿠키 삭제</h1>
 </div>
 </body>
 </html>
