@@ -22,6 +22,12 @@ int lastday = cal.getActualMaximum(Calendar.DATE);
 </head>
 
 <style>
+
+.main{
+	font-size:50px;
+	text-align: center;
+	border:1px solid #cccccc;
+}
 body{
 	font-size:9pt;
 	color:#555555;
@@ -32,22 +38,33 @@ table {
 th, td {
 	border:1px solid #cccccc;
 	width:100px;
-	height:25px;
+	height:50px;
 	text-align: center;
 }
 
-caption {
-	margin-bottom:10px;
-	font-size: 15px;
+svg{
+	width:100px;
+	height:50px;
+	text-align: center;
 }
 
 </style>
-
 <body>
 <div class="container">
-
 <table>
-	<h1> <%= y %>년 <%= m+1 %>월</h1>
+
+	<div class="main"> 
+<svg button="btn-submit" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+</svg>
+	
+	<%= y %>년 <%= m+1 %>월
+	
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+</svg>
+	
+	</div>
 	<tr>
 		<th>일</th>
 		<th>월</th>
@@ -75,15 +92,12 @@ caption {
 			if(count%7 == 0){
 				out.print("</tr><tr>");
 			}
-		
 		}
 		%>
 	</tr>
 	
 
 </table>
-	
-	
 	
 </div>
 </body>
