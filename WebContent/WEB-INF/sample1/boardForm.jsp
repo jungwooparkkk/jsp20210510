@@ -4,6 +4,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags/ch16/lecture" %>
 <%@ taglib prefix="tf" tagdir="/WEB-INF/tags/ch16/textbook" %>
+<%@ taglib prefix="s1" tagdir="/WEB-INF/tags/sample1" %>
 
 <% request.setCharacterEncoding("utf-8"); %>
 
@@ -16,43 +17,26 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<s1:navbar />
+
 <div class="container">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/jsp/sample1/write">글쓰기 <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/jsp/sample1/list">목록보기</a>
-      </li>
-
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-  </div>
-</nav>
-
+	<h1>글쓰기</h1>
+	<div class="row justify-content-center">
+		<div class="col-8">
 	<form action="" method="post">
-		제목
-		<br>
-		<input type="text" name="title" />
-		<br>
-		본문
-		<br>
-		<textarea name="body" ></textarea>
-		<br>
-		<input type="submit" />
+	<div class="form-group">
+		<label for="input1">제목</label>
+		<input type="text" name="title" class="form-control" id="input1" />
+	</div>
+	<div class="form-group">
+		<label for="textarea">본문</label>
+		<textarea class="form-control" name="body" rows="5" id="textarea"></textarea>
+	</div>
+		<input type="submit" class="btn btn-primary"/>
 	</form>
+		</div>
+	</div>
 </div>
 </body>
 </html>
