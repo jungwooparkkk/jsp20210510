@@ -20,7 +20,7 @@
 
 <s1:navbar />
 
-<div class="container">
+<div class="container mt-5">
 	<h1>글쓰기</h1>
 	<div class="row justify-content-center">
 		<div class="col-8">
@@ -29,6 +29,12 @@
 		<label for="input1">제목</label>
 		<input type="text" name="title" class="form-control" id="input1" />
 	</div>
+	
+	<div class="form-group">
+		<label for="input2">작성자</label>
+		<input id="input2" class="form-control" type=text" name ="writer">
+	</div>
+	
 	<div class="form-group">
 		<label for="textarea">본문</label>
 		<textarea class="form-control" name="body" rows="5" id="textarea"></textarea>
