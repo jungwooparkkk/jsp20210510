@@ -8,6 +8,7 @@
 
 <%
 	request.setCharacterEncoding("utf-8");
+String index = request.getParameter("index");
 %>
 
 <!DOCTYPE html>
@@ -24,6 +25,11 @@
 			$("#submit1").removeAttr("hidden");
 		});
 	});
+     function deletePage(index){
+        if(confirm("글이 삭제됩니다!")==true){
+            location.href="delete.jsp?index="+${param.index };
+        }
+    };
 </script>
 </head>
 <body>
@@ -57,16 +63,20 @@
 					<button type="button" id="button1" class="btn btn-secondary">수정</button>
 					<input hidden type="submit" id="submit1" class="btn btn-primary"
 						value="전송" />
-					<!-- Button trigger modal -->
+					<button class="btn btn-primary" type=button title="삭제" onClick="deletePage(${param.index })">삭제</button>
+
+						
+			<!-- 		Button trigger modal
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
 			 삭제
-			</button>
+			</button> -->
+			
 				</form>
 			</div>
 		</div>
 
 	</div>
 	
-<s1:delete id="exampleModal" keyboard="ture" />
+<%-- <s1:delete id="exampleModal" keyboard="ture" /> --%>
 </body>
 </html>

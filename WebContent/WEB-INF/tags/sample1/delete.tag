@@ -18,7 +18,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-        <button type="button" class="btn btn-primary">삭제</button>
+        <button href="${pageContext.request.contextPath }/sample1/delete" type="button" class="btn btn-primary">삭제</button>
       </div>
     </div>
   </div>
