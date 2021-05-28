@@ -49,73 +49,73 @@ public class JDBC11Servlet extends HttpServlet {
 			
 		Employee employee = null; //리턴할 객체
 			
-			String sql = "SELECT * FROM Employees "
-					+ "WHERE EmployeeID = " + id ;
-	
-			String url = "jdbc:mysql://3.35.132.205/test";
-			String user = "root";
-			String password = "wnddkdwjdqhcjfl1";
-	
-			Connection con = null;
-			Statement stmt = null;
-			ResultSet rs = null;
-	
-			try {
-				// 클래스 로딩
-				Class.forName("com.mysql.cj.jdbc.Driver");
-	
-				// 연결
-				con = DriverManager.getConnection(url, user, password);
-	
-				// statement 생성
-				stmt = con.createStatement();
-	
-				// 쿼리 실행, 결과(ResultSet) 리턴
-				rs = stmt.executeQuery(sql);
-	
-				// 결과 탐색
-				if (rs.next()) {
-					String employeeId = rs.getString(1);
-					String lastName = rs.getString(2);
-					String firstName = rs.getString(3);
-					
-					employee = new Employee();
-					employee.setEmployeeId(employeeId);
-					employee.setLastName(lastName);
-					employee.setFirstName(firstName);
-				}
-	
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				// 연결닫기
-				if (rs != null) {
-					try {
-						rs.close();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-				if (stmt != null) {
-					try {
-						stmt.close();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-				if (con != null) {
-					try {
-						con.close();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+		String sql = "SELECT * FROM Employees "
+				+ "WHERE EmployeeID = " + id ;
+
+		String url = "jdbc:mysql://3.35.132.205/test";
+		String user = "root";
+		String password = "wnddkdwjdqhcjfl1";
+
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+
+		try {
+			// 클래스 로딩
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			// 연결
+			con = DriverManager.getConnection(url, user, password);
+
+			// statement 생성
+			stmt = con.createStatement();
+
+			// 쿼리 실행, 결과(ResultSet) 리턴
+			rs = stmt.executeQuery(sql);
+
+			// 결과 탐색
+			if (rs.next()) {
+				String employeeId = rs.getString(1);
+				String lastName = rs.getString(2);
+				String firstName = rs.getString(3);
+				
+				employee = new Employee();
+				employee.setEmployeeId(employeeId);
+				employee.setLastName(lastName);
+				employee.setFirstName(firstName);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 연결닫기
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
-	
-			return employee;
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return employee;
 	}
 
 
