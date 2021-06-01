@@ -25,11 +25,6 @@ String index = request.getParameter("index");
 			$("#submit1").removeAttr("hidden");
 		});
 	});
-     function deletePage(index){
-        if(confirm("글이 삭제됩니다!")==true){
-            location.href="delete.jsp?index="+${param.index };
-        }
-    };
 </script>
 </head>
 <body>
@@ -39,7 +34,7 @@ String index = request.getParameter("index");
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<h1>글보기</h1>
-				<form id="form1"
+				<form id="form1">
 					action="${pageContext.request.contextPath }/sample1/modify"
 					method="post">
 					<div class="form-group">
@@ -63,7 +58,7 @@ String index = request.getParameter("index");
 					<button type="button" id="button1" class="btn btn-secondary">수정</button>
 					<input hidden type="submit" id="submit1" class="btn btn-primary"
 						value="전송" />
-					<button class="btn btn-primary" type=button title="삭제" onClick="deletePage(${param.index })">삭제</button>
+					<button class="btn btn-primary" type=button title="삭제">삭제</button>
 
 						
 			<!-- 		Button trigger modal
