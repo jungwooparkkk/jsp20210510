@@ -25,8 +25,8 @@
 		Notes : <br>
 		<textarea name="notes" rows="5"><c:out value="${employee.notes }" /></textarea>
 		<br>
-		<input type="submit" value="삭제">
-		
+		<!-- <input type="submit" value="삭제"> -->
+		<button class="btn btn-primary" type="submit" title="삭제">삭제</button>
 	</form>
 </div>
 </body>
