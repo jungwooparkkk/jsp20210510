@@ -34,7 +34,7 @@ String index = request.getParameter("index");
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<h1>글보기</h1>
-				<form id="form1">
+				<form id="form1"
 					action="${pageContext.request.contextPath }/sample1/modify"
 					method="post">
 					<div class="form-group">
