@@ -22,3 +22,5 @@ WHERE CustomerID = 5;
 
 SELECT * FROM Employees
 WHERE EmployeeID = 2;
+
+SELECT EmployeeID,
