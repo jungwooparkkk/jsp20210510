@@ -32,7 +32,7 @@
 	
 	<div class="form-group">
 		<label for="input2">작성자</label>
-		<input id="input2" class="form-control" type=text" name ="writer">
+		<input id="input2" class="form-control" type="text" name ="writer">
 	</div>
 	
 	<div class="form-group">
