@@ -1,28 +1,24 @@
 package sample2.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import sample2.bean.Member;
-import sample2.dao.MemberDao;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Sample2ListServlet
+ * Servlet implementation class Sample2logoutServlet
  */
-@WebServlet("/sample2/member/list")
-public class Sample2ListServlet extends HttpServlet {
+@WebServlet("/sample2/member/logout")
+public class Sample2logoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2ListServlet() {
+    public Sample2logoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,18 +27,12 @@ public class Sample2ListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberDao dao = new MemberDao();
+		HttpSession session = request.getSession();
+		session.invalidate();
 		
-		// db에서 회원 list 얻어서
-		List<Member> list = dao.list();
-		
-		// request attribute에 붙여서
-		request.setAttribute("members", list);
-		
-		// forward
-		String path = "/WEB-INF/sample2/member/list.jsp";
-		request.getRequestDispatcher(path).forward(request, response);
-		
+		String path = request.getContextPath() + "/sample2/main";
+		response.sendRedirect(path);
+	
 	}
 
 	/**
