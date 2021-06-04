@@ -1,4 +1,4 @@
-package sample2.controller;
+package sample2.controller.member;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,22 +6,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import sample2.bean.Member;
 import sample2.dao.MemberDao;
 
 /**
- * Servlet implementation class Sample2RemoveServlet
+ * Servlet implementation class Sample2CheckDupServlet
  */
-@WebServlet("/sample2/member/remove")
-public class Sample2RemoveServlet extends HttpServlet {
+@WebServlet("/sample2/member/checkdup")
+public class Sample2CheckDupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2RemoveServlet() {
+    public Sample2CheckDupServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,16 +36,19 @@ public class Sample2RemoveServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		Member member = (Member) session.getAttribute("userLogined");
+String id = request.getParameter("id");
+		
+		// System.out.println(id);
 		
 		MemberDao dao = new MemberDao();
-		dao.remove(member.getId());
 		
-		session.invalidate();
+		response.setContentType("text/plain; charset=utf-8");
+		if (dao.existsId(id)) {
+			response.getWriter().append("not ok");
+		} else {
+			response.getWriter().append("ok");
+		}
 		
-		String path = request.getContextPath() + "/sample2/main";
-		response.sendRedirect(path);
 	}
 
 }
