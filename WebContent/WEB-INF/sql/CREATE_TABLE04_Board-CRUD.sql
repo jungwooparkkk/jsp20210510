@@ -12,3 +12,9 @@ CREATE TABLE Board
 
 SELECT * FROM Board;
 DESC Board;
+
+USE test2;
+
+ALTER TABLE Board
+ADD FOREIGN KEY (MemberId)
+REFERENCES Member(id);
