@@ -50,7 +50,7 @@ SELECT * FROM Table01; -- 4개 record
 SELECT * FROM Table02; -- 4개 record
 
 SELECT * FROM Table01, Table02; -- 16개 record
-
+DROP TABLE id = 5;
 -- join
 SELECT * FROM
 Table01 JOIN Table02

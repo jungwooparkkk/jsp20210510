@@ -51,6 +51,5 @@ SELECT * FROM Users LEFT JOIN Likes ON Users.Id = Likes.userId
 WHERE Likes.userId is NULL;
 
 -- 사용자들이 좋아하지 않는것
-
 SELECT * FROM Users RIGHT JOIN Likes ON Users.id = Likes.UserId
 WHERE Users.id IS NULL;
