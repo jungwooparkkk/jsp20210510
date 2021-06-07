@@ -5,9 +5,9 @@
 <div>
 	<a href="<%= request.getContextPath() %>/sample2/main">메인</a>
 	|
-	<a href="<%= request.getContextPath() %>/sample2/member/signup">회원가입</a>
-	|
 	<c:if test="${empty sessionScope.userLogined }" >
+		<a href="<%= request.getContextPath() %>/sample2/member/signup">회원가입</a>
+		|
 		<a href="<%= request.getContextPath() %>/sample2/member/login">로그인</a>
 		|
 	</c:if>
