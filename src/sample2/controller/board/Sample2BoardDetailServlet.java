@@ -1,6 +1,7 @@
 package sample2.controller.board;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import sample2.Service.comment.CommentService;
 import sample2.bean.Board;
 import sample2.bean.BoardDto;
+import sample2.bean.Comment;
 import sample2.dao.BoardDao;
 
 /**
@@ -19,6 +22,7 @@ import sample2.dao.BoardDao;
 public class Sample2BoardDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	private CommentService commentService;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -26,7 +30,11 @@ public class Sample2BoardDetailServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    @Override
+    public void init() throws ServletException {
+    	super.init();
+    	this.commentService = new CommentService();
+    }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -41,7 +49,9 @@ public class Sample2BoardDetailServlet extends HttpServlet {
 //			Board board = dao.get(Integer.parseInt(id));
 			BoardDto board = dao.get2(Integer.parseInt(id));
 			
+			List<Comment> commentList = commentService.list(Integer.parseInt(id));
 			request.setAttribute("board", board);
+			request.setAttribute("comments", commentList);
 			
 			String path = "/WEB-INF/sample2/board/detail.jsp";
 			request.getRequestDispatcher(path).forward(request, response);
