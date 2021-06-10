@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import sample2.Service.board.MemberRemoveService;
+import sample2.Service.member.MemberService;
 import sample2.bean.Member;
 import sample2.dao.BoardDao;
 import sample2.dao.MemberDao;
@@ -20,7 +20,7 @@ import sample2.dao.MemberDao;
 public class Sample2RemoveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private MemberRemoveService service  = null;
+	private MemberService service  = null;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,7 +35,7 @@ public class Sample2RemoveServlet extends HttpServlet {
     	// TODO Auto-generated method stub
     	super.init();
     	
-		this.service = new MemberRemoveService();
+		this.service = new MemberService();
     	
     }
 
