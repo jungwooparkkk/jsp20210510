@@ -106,7 +106,7 @@
 				});
 			});
 		</script>
-		<div>
+		<div> 
 			<form id="comment${comment.id }Form" 
 			      action="${pageContext.request.contextPath }/sample2/comment/modify"
 			      method="post">
