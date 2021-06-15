@@ -48,9 +48,10 @@ WHERE memberId = '한글';
 SELECT count(id) FROM Comment
 WHERE memberId = '한글';
 
-SELECT COUNT(id) FROM Board;
+SELECT COUNT(id) FROM Board
+WHERE id;
 
-SELECT * FROM Board;
+SELECT COUNT(id) FROM Board;
 
 
 
